@@ -10,7 +10,6 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-//    String description = "This is a description";
     EditText editText;
     Button btn;
     @Override
@@ -24,9 +23,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String namevalue = editText.getText().toString();
-                Intent intent = new Intent(MainActivity.this, SelectPreferences.class);
+                Intent intent = new Intent(MainActivity.this, DayMeal.class);
                 intent.putExtra("NAME", namevalue);
-//                intent.putExtra("DESCRIPTION", description);
                 startActivity(intent);
             }
         });

@@ -11,17 +11,17 @@ import android.widget.TextView;
 
 public class SelectPreferences extends AppCompatActivity {
 
-    TextView heading;
+    TextView heading, heading_label;
     Button btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_preferences);
 
-        heading = (TextView) findViewById(R.id.headingLabel);
-        heading.setText("Hello " + getIntent().getStringExtra("NAME"));
+        heading_label = (TextView) findViewById(R.id.headingLabel2);
+        heading_label.setText(getIntent().getStringExtra("DAY") + " | " + getIntent().getStringExtra("MEAL"));
 
-        btn = (Button) findViewById(R.id.getMessChoicesButton);
+        btn = (Button) findViewById(R.id.foodPreferencesButton);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
