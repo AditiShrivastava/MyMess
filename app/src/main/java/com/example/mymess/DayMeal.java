@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class DayMeal extends AppCompatActivity {
 
     Button btn;
@@ -82,6 +84,12 @@ public class DayMeal extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void logout(View view){
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 
 }
