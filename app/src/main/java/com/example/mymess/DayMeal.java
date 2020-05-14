@@ -15,20 +15,43 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+
+import javax.annotation.Nullable;
 
 public class DayMeal extends AppCompatActivity {
 
     Button btn;
     String day_val, meal_val;
     TextView heading;
+    FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
+    String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day_meal);
 
-        heading = (TextView) findViewById(R.id.headingLabel);
-        heading.setText("Hello " + getIntent().getStringExtra("NAME"));
+        heading = findViewById(R.id.headingLabel);
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+
+        userID = fAuth.getCurrentUser().getUid();
+
+        DocumentReference documentReference = fStore.collection("users").document(userID);
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                heading.setText("Welcome " + documentSnapshot.getString("fName"));
+            }
+        });
+//        heading = (TextView) findViewById(R.id.headingLabel);
+//        heading.setText("Hello " + getIntent().getStringExtra("NAME"));
 
         final Spinner mySpinner1 = (Spinner) findViewById(R.id.spinner1);
         ArrayAdapter<String> myAdapter1 = new ArrayAdapter<String>(DayMeal.this,
