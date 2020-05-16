@@ -17,4 +17,25 @@
         <item>Lunch</item>
         <item>Dinner</item>
     </string-array>
+
+    <string-array name="tags">
+        <item>Spicy</item>
+        <item>Sweet</item>
+        <item>Fibrous</item>
+        <item>Green vegetable</item>
+        <item>Sweet Fruit</item>
+        <item>Sour Fruit</item>
+        <item>Milk product</item>
+        <item>Made from Rice</item>
+        <item>Rich in Iron</item>
+        <item>tea</item>
+        <item>juice</item>
+        <item>coffee</item>
+        <item>x</item>
+        <item>y</item>
+        <item>z</item>
+        <item>p</item>
+        <item>q</item>
+        <item>r</item>
+    </string-array>
 </resources>
