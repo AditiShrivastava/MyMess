@@ -55,7 +55,7 @@ public class DayMeal extends AppCompatActivity {
 
         final Spinner mySpinner1 = (Spinner) findViewById(R.id.spinner1);
         ArrayAdapter<String> myAdapter1 = new ArrayAdapter<String>(DayMeal.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.days));
+                R.layout.spinner_item, getResources().getStringArray(R.array.days));
         myAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner1.setAdapter(myAdapter1);
 
@@ -74,7 +74,7 @@ public class DayMeal extends AppCompatActivity {
 
         final Spinner mySpinner2 = (Spinner) findViewById(R.id.spinner2);
         ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(DayMeal.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.meals));
+                R.layout.spinner_item, getResources().getStringArray(R.array.meals));
         myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner2.setAdapter(myAdapter2);
 
