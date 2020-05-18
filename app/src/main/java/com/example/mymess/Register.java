@@ -29,7 +29,7 @@ public class Register extends AppCompatActivity {
     public static final String TAG = "TAG";
     // Create some variables
     EditText mFullName, mEmail, mPassword;
-    Button mRegisterBtn;
+    Button mRegisterBtn, mlogin_Button;
     FirebaseAuth fAuth;
     ProgressBar progressBar;
     FirebaseFirestore fStore;
@@ -42,7 +42,7 @@ public class Register extends AppCompatActivity {
         mEmail = findViewById(R.id.email_Field);
         mPassword = findViewById(R.id.password_Field);
         mRegisterBtn = findViewById(R.id.register_Button);
-
+        mlogin_Button = findViewById(R.id.login_Button);
         fAuth = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressBar);
         fStore = FirebaseFirestore.getInstance();
@@ -112,5 +112,16 @@ public class Register extends AppCompatActivity {
 
             }
         });
+
+
+        mlogin_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
+        });
     }
+
+
+
 }
