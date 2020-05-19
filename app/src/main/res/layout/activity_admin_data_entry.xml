@@ -65,9 +65,26 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="saveNote"
-        android:text="Save Details"
+        android:onClick="saveDish"
+        android:text="Save Dish"
         android:textSize="24sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="loadDishes"
+        android:text="Load Dishes" />
+
+
+<!--    <android.support.v4.widget.NestedScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+<!--        <TextView-->
+<!--            android:id="@+id/text_view_data"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="20sp" />-->
+<!--    </android.support.v4.widget.NestedScrollView>-->
 
     <Button
         android:id="@+id/login_Button"
@@ -75,5 +92,19 @@
         android:layout_height="wrap_content"
         android:text="Login as Normal User"
         android:textSize="24sp" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_view_data"
+            android:textSize="20sp" />
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
 
 </LinearLayout>

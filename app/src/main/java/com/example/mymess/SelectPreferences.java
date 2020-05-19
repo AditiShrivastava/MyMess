@@ -44,14 +44,7 @@ public class SelectPreferences extends AppCompatActivity {
                 mBuilder.setMultiChoiceItems(listItems, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int position, boolean isChecked) {
-//                        if(isChecked){
-//                            if(!mUserItems.contains(position)){
-//                                mUserItems.add(position);
-//                            }
-//                        }
-//                        else if(mUserItems.contains(position)) {
-//                            mUserItems.remove(position);
-//                        }
+
                         if(isChecked){
                             mUserItems.add(position);
                         }else{
