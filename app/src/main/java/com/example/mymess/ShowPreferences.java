@@ -10,6 +10,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.ListMultimap;
+import com.google.common.collect.MultimapBuilder;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -26,7 +29,8 @@ public class ShowPreferences extends AppCompatActivity {
     TextView heading;
     TextView heading_label;
     HashSet<String> userSelectedTagsHashSet = new HashSet<String>();
-    HashMap<Integer, String> dishCountMatchesHashMap = new HashMap<Integer, String>();
+    ListMultimap<Integer, String> dishCountMatchesHashMap = MultimapBuilder.hashKeys().linkedListValues().build();
+//    HashMap<Integer, String> dishCountMatchesHashMap = new HashMap<Integer, String>();
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference notebookRef = db.collection("dishes");
     private static final String TAG = "ShowPreferences";
@@ -42,6 +46,7 @@ public class ShowPreferences extends AppCompatActivity {
 
         String day = getIntent().getStringExtra("DAY");
         String meal = getIntent().getStringExtra("MEAL");
+        String user_day_meal = day.toLowerCase() + "_" + meal.toLowerCase();
 
         String s = "";
         for (String i : userSelectedTags){
@@ -55,7 +60,9 @@ public class ShowPreferences extends AppCompatActivity {
         heading = findViewById(R.id.headingLabel);
         heading.setText(s);
 
-        notebookRef.whereArrayContains("day_meal", "monday_breakfast").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+
+
+        notebookRef.whereArrayContains("day_meal", user_day_meal).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
@@ -70,7 +77,7 @@ public class ShowPreferences extends AppCompatActivity {
                     }
                     dish.setDocumentId(documentSnapshot.getId());
                     String dish_id = dish.getDocumentId();
-                    System.out.println(dish_id + ", "+ s);
+                    System.out.println("Dish: " + dish_id + ", "+ s);
                     Integer dish_tag_match_count = 0;
                     for (String tag : dish_tags_array) {
                         if (userSelectedTagsHashSet.contains(tag))
@@ -78,8 +85,8 @@ public class ShowPreferences extends AppCompatActivity {
                     }
                     dishCountMatchesHashMap.put(dish_tag_match_count, dish_id);
                 }
-                System.out.println(Arrays.asList(dishCountMatchesHashMap));
-                System.out.println(Arrays.asList(userSelectedTagsHashSet));
+                System.out.println("Hash_MultiMap: " + Arrays.asList(dishCountMatchesHashMap));
+                System.out.println("User Selected Tags: " + Arrays.asList(userSelectedTagsHashSet));
             }
         });
 
