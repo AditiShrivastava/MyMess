@@ -111,6 +111,8 @@ public class SelectPreferences extends AppCompatActivity {
                 }
                 Intent intent = new Intent(SelectPreferences.this, ShowPreferences.class);
                 intent.putExtra("USER_SELECTED_TAGS", userSelectedTags);
+                intent.putExtra("DAY", getIntent().getStringExtra("DAY"));
+                intent.putExtra("MEAL", getIntent().getStringExtra("MEAL"));
                 startActivity(intent);
             }
         });

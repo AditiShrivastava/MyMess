@@ -2,6 +2,7 @@ package com.example.mymess;
 import com.google.firebase.firestore.Exclude;
 import java.util.List;
 public class Dish {
+    private String documentId;
     private String cuisine;
     private String dish_name;
     private String mess;
@@ -20,6 +21,13 @@ public class Dish {
         this.day_meal = day_meal;
     }
 
+    @Exclude
+    public String getDocumentId() {
+        return documentId;
+    }
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
+    }
 
     public String getCuisine() {
         return cuisine;
