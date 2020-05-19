@@ -1,26 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bg3"
-    tools:context=".SelectPreferences">
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:id="@+id/submitBtn"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:background="@drawable/bg3"-->
+<!--    tools:context=".SelectPreferences">-->
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@drawable/bg3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SelectPreferences">
 
-    <TextView
-        android:id="@+id/headingLabel3"
-        android:layout_width="378dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="36dp"
-        android:text="Select your preferences:"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headingLabel2" />
+<!--        <TextView-->
+<!--            android:id="@+id/headingLabel3"-->
+<!--            android:layout_width="378dp"-->
+<!--            android:layout_height="189dp"-->
+<!--            android:layout_marginTop="132dp"-->
+<!--            android:layout_marginBottom="169dp"-->
+<!--            android:text="Select your preferences:"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:textColorHighlight="@android:color/white"-->
+<!--            android:textColorHint="@android:color/white"-->
+<!--            android:textSize="24sp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/submitBtn"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.484"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/headingLabel2"-->
+<!--            android:textColorLink="@android:color/white" />-->
 
     <TextView
         android:id="@+id/headingLabel2"
@@ -30,9 +44,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="37dp"
-        android:layout_marginRight="37dp"
+        android:layout_marginTop="44dp"
         android:text="Monday | Breakfast"
         android:textColor="@android:color/white"
         android:textColorHighlight="@android:color/white"
@@ -41,52 +53,82 @@
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.618"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headingLabel" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/showMessChoicesButton"
-        android:layout_width="393dp"
-        android:layout_height="75dp"
+        android:layout_width="344dp"
+        android:layout_height="53dp"
         android:layout_below="@+id/headingLabel2"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="17dp"
-        android:layout_marginLeft="17dp"
-        android:layout_marginTop="47dp"
-        android:layout_marginEnd="-1dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="Show Tags"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox6"
-        tools:layout_editor_absoluteX="90dp" />
+        app:layout_constraintBottom_toTopOf="@+id/headingLabel3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headingLabel2"
+        tools:ignore="MissingConstraints,UnknownId" />
 
-    <TextView
-        android:id="@+id/display_Selected"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_below="@+id/showMessChoicesButton"
+<!--    <TextView-->
+<!--        android:id="@+id/display_Selected"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="45dp"-->
+<!--        android:layout_below="@+id/showMessChoicesButton"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:gravity="center"-->
+<!--        android:textColor="@android:color/white"-->
+<!--        android:textColorHighlight="@android:color/white"-->
+<!--        android:textColorHint="@android:color/white"-->
+<!--        android:textColorLink="@android:color/white"-->
+<!--        android:textStyle="italic"-->
+<!--        tools:layout_editor_absoluteX="110dp"-->
+<!--        tools:layout_editor_absoluteY="242dp" />-->
+
+
+
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="221dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="61dp"
-        android:layout_marginEnd="152dp"
-        android:layout_marginRight="152dp"
-        android:layout_marginBottom="156dp"
-        android:gravity="center"
+        android:layout_marginBottom="152dp"
+        android:text="Submit Choice"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/display_Selected"
+        android:layout_width="298dp"
+        android:layout_height="226dp"
+        android:text=""
         android:textColor="@android:color/white"
         android:textColorHighlight="@android:color/white"
         android:textColorHint="@android:color/white"
         android:textColorLink="@android:color/white"
-        android:textStyle="italic" />
+        app:layout_constraintBottom_toTopOf="@+id/submitBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/showMessChoicesButton" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
