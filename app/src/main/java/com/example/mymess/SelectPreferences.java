@@ -1,5 +1,6 @@
 package com.example.mymess;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +13,14 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,6 +37,8 @@ public class SelectPreferences extends AppCompatActivity {
     boolean[] checkedItems;
     ArrayList<String> userSelectedTags = new ArrayList<>();
     ArrayList<Integer> mUserItems = new ArrayList<>();
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private CollectionReference notebookRef = db.collection("tagsCollection");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +51,35 @@ public class SelectPreferences extends AppCompatActivity {
         mShowMessChoices = (Button) findViewById(R.id.showMessChoicesButton);
         mDisplaySelected = (TextView) findViewById(R.id.display_Selected);
 
-        listItems = getResources().getStringArray(R.array.tags);
-        checkedItems = new boolean[listItems.length];
+
+//        listItems = getResources().getStringArray(R.array.tags);
+
+        String day = getIntent().getStringExtra("DAY");
+        String meal = getIntent().getStringExtra("MEAL");
+        String user_day_meal = day.toLowerCase() + "_" + meal.toLowerCase();
+
+        notebookRef.document(user_day_meal).get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if(documentSnapshot.exists()){
+                            List<String> dish_tags = (List<String>)documentSnapshot.get("tags");
+                            listItems = dish_tags.toArray(new String[0]);
+                            checkedItems = new boolean[listItems.length];
+                            System.out.println(user_day_meal + ": "+ Arrays.toString(listItems));
+                        }
+                        else{
+                            Toast.makeText(SelectPreferences.this, "Document does not exist", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(SelectPreferences.this, "Error", Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, e.toString());
+                    }
+                });
 
         mShowMessChoices.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
