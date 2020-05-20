@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ListMultimap;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Multimap;
 import com.google.common.collect.MultimapBuilder;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -20,16 +22,20 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class ShowPreferences extends AppCompatActivity {
     Button btn;
     TextView heading;
     TextView heading_label;
     HashSet<String> userSelectedTagsHashSet = new HashSet<String>();
-    ListMultimap<Integer, String> dishCountMatchesHashMap = MultimapBuilder.hashKeys().linkedListValues().build();
+    ListMultimap<Integer, Dish> dishCountMatchesHashMap = MultimapBuilder.hashKeys().linkedListValues().build();
 //    HashMap<Integer, String> dishCountMatchesHashMap = new HashMap<Integer, String>();
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference notebookRef = db.collection("dishes");
@@ -55,10 +61,10 @@ public class ShowPreferences extends AppCompatActivity {
         }
 
         heading_label = (TextView) findViewById(R.id.headingLabel2);
-        heading_label.setText(getIntent().getStringExtra("DAY") + " | " + getIntent().getStringExtra("MEAL"));
+//        heading_label.setText(getIntent().getStringExtra("DAY") + " | " + getIntent().getStringExtra("MEAL"));
 
         heading = findViewById(R.id.headingLabel);
-        heading.setText(s);
+//        heading.setText(s);
 
 
 
@@ -83,10 +89,27 @@ public class ShowPreferences extends AppCompatActivity {
                         if (userSelectedTagsHashSet.contains(tag))
                             dish_tag_match_count++;
                     }
-                    dishCountMatchesHashMap.put(dish_tag_match_count, dish_id);
+                    dishCountMatchesHashMap.put(dish_tag_match_count, dish);
                 }
+                // Iterate over Guava's Multimap using entries() method
+
+//                final List<Integer, Dish> reversedishCountMatchesHashMap
+//                        = Lists.newArrayList(dishCountMatchesHashMap.values());
+                Set keySet = dishCountMatchesHashMap.keySet();
+                Iterator keyIterator = keySet.iterator();
+
+                while (keyIterator.hasNext() ) {
+                    int key = (int)keyIterator.next();
+                    List values = dishCountMatchesHashMap.get(key);
+                    System.out.println(key + ": " + values);
+                }
+
+                for (Map.Entry<Integer,Dish> entry: dishCountMatchesHashMap.entries()) {
+                    System.out.println(entry.getKey() + ": " + entry.getValue());
+                }
+
                 System.out.println("Hash_MultiMap: " + Arrays.asList(dishCountMatchesHashMap));
-                System.out.println("User Selected Tags: " + Arrays.asList(userSelectedTagsHashSet));
+//                System.out.println("User Selected Tags: " + Arrays.asList(userSelectedTagsHashSet));
             }
         });
 

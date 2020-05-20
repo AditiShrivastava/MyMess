@@ -66,7 +66,7 @@ public class SelectPreferences extends AppCompatActivity {
                             List<String> dish_tags = (List<String>)documentSnapshot.get("tags");
                             listItems = dish_tags.toArray(new String[0]);
                             checkedItems = new boolean[listItems.length];
-                            System.out.println(user_day_meal + ": "+ Arrays.toString(listItems));
+//                            System.out.println(user_day_meal + ": "+ Arrays.toString(listItems));
                         }
                         else{
                             Toast.makeText(SelectPreferences.this, "Document does not exist", Toast.LENGTH_SHORT).show();
