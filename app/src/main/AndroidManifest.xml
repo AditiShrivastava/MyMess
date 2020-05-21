@@ -11,7 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminDataEntry"></activity>
+        <activity android:name=".MessSelected"></activity>
+        <activity
+            android:name=".SuccessfulMessRegistration"
+            android:parentActivityName=".ShowPreferences" />
+        <activity android:name=".AdminDataEntry" />
         <activity android:name=".Register" />
         <activity android:name=".DayMeal" />
         <activity android:name=".ShowPreferences" />

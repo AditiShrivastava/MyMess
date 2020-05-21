@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/bg3"
+    tools:context=".SuccessfulMessRegistration">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/imageIv"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/ic_launcher">
+
+    </androidx.appcompat.widget.AppCompatImageView>
+
+    <TextView
+        android:id="@+id/titleTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageIv"
+        android:text="Title"
+        android:textColor="@android:color/white"
+        android:textColorHighlight="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textColorLink="@android:color/white"
+        android:textSize="22sp"
+        android:textStyle="bold">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/cuisineTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleTv"
+        android:layout_marginTop="5dp"
+        android:text="Cuisine"
+        android:textColor="@android:color/white"
+        android:textColorHighlight="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="18sp">
+
+    </TextView>
+
+
+    <TextView
+        android:id="@+id/messTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cuisineTv"
+        android:layout_marginTop="5dp"
+        android:text="Mess"
+        android:textColor="@android:color/white"
+        android:textColorHighlight="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textColorLink="@android:color/white"
+        android:textSize="18sp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/tagsTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/messTv"
+        android:layout_marginTop="5dp"
+        android:text="ShowTagsHere"
+        android:textColor="@android:color/white"
+        android:textColorHighlight="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textColorLink="@android:color/white"
+        android:textSize="18sp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/displaymessage"
+        android:layout_width="383dp"
+        android:layout_height="174dp"
+        android:layout_below="@+id/tagsTv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp"
+        android:text="ShowSuccessMessage"
+        android:textColor="@android:color/white"
+        android:textColorHighlight="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textColorLink="@android:color/white"
+        android:textSize="25sp">
+
+    </TextView>
+
+    <Button
+        android:id="@+id/confirm_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="97dp"
+        android:layout_marginLeft="97dp"
+        android:layout_marginTop="505dp"
+        android:layout_marginRight="20dp"
+        android:text="Confirm This Mess?" />
+
+
+    <!--    <Button-->
+<!--        android:id="@+id/logout_Button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginBottom="159dp"-->
+<!--        android:text="LOGOUT" />-->
+    <!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/numtagsTv"-->
+<!--        android:text=""-->
+<!--        android:textSize="12sp"-->
+<!--        android:textColor="#a9a9a9"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:layout_below="@+id/tagsTv">-->
+<!--    </TextView>-->
+
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/nummessTagsTv"-->
+<!--        android:text="ShowMessTagCount"-->
+<!--        android:textSize="12sp"-->
+<!--        android:textColor="#a9a9a9"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:layout_below="@+id/numtagsTv">-->
+<!--    </TextView>-->
+
+</RelativeLayout>

@@ -35,6 +35,7 @@
         android:id="@+id/email_Field"
         android:layout_width="297dp"
         android:layout_height="47dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="228dp"
         android:ems="10"
         android:hint="College mail ID"
@@ -51,8 +52,8 @@
 
     <EditText
         android:id="@+id/password_Field"
-        android:layout_width="294dp"
-        android:layout_height="58dp"
+        android:layout_width="297dp"
+        android:layout_height="47dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
@@ -62,16 +63,16 @@
         android:textColorLink="@android:color/white"
         app:layout_constraintBottom_toTopOf="@+id/login_Button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.418"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email_Field"
-        app:layout_constraintVertical_bias="0.255" />
+        app:layout_constraintVertical_bias="0.26" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -82,24 +83,26 @@
         android:id="@+id/register_Btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="376dp"
+        android:layout_marginBottom="52dp"
         android:text="Register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.226"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_Button"
-        app:layout_constraintVertical_bias="0.189" />
+        app:layout_constraintTop_toBottomOf="@+id/password_Field" />
 
     <Button
         android:id="@+id/Admin_Btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="376dp"
+        android:layout_marginBottom="52dp"
         android:text="Go to Admin Page"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_Btn"
-        app:layout_constraintVertical_bias="0.769" />
+        app:layout_constraintTop_toBottomOf="@+id/password_Field" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

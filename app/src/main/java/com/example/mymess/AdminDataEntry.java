@@ -95,9 +95,10 @@ public class AdminDataEntry extends AppCompatActivity {
         List<String> chipdaymeal = mNachoTextViewDayMeal.getChipAndTokenValues();
         List<String> tagsList = new ArrayList<String>(chiptags);
         List<String> daymealsList = new ArrayList<String>(chipdaymeal);
+        String image_path = "https://firebasestorage.googleapis.com/v0/b/mymess-8b7aa.appspot.com/o/dish_images%2Fdefault.jpeg?alt=media&token=977782e9-1772-4ccc-b8c0-a97f30426d37";
 
 //        Map<String, Object> note = new HashMap<>();
-        Dish dish = new Dish(cuisine_name, dish_name, mess_name, tagsList, daymealsList);
+        Dish dish = new Dish(cuisine_name, dish_name, mess_name, tagsList, daymealsList, image_path);
 //        note.put(KEY_DISH_NAME, dish_name);
 //        note.put(KEY_MESS_NAME, mess_name);
 //        note.put(KEY_CUISINE_NAME, cuisine_name);
@@ -108,7 +109,7 @@ public class AdminDataEntry extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
-                            Toast.makeText(AdminDataEntry.this, "Note saved", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AdminDataEntry.this, "Dish saved", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -126,25 +127,25 @@ public class AdminDataEntry extends AppCompatActivity {
 
     }
 
-    public void  loadDishes(View v){
-
-        notebookRef.whereArrayContains("day_meal", "monday_breakfast").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        String data = "";
-                        for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                            Dish dish = documentSnapshot.toObject(Dish.class);
-                            data += "Dish Name: " + dish.getDish_name();
-                            for (String tag : dish.getTags()) {
-                                data += "\n-" + tag;
-                            }
-                            data += "\n\n";
-                        }
-                        Log.d(TAG, data);
-                        textViewData.setText(data);
-                    }
-                });
-    }
+//    public void  loadDishes(View v){
+//
+//        notebookRef.whereArrayContains("day_meal", "monday_breakfast").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+//                        String data = "";
+//                        for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+//                            Dish dish = documentSnapshot.toObject(Dish.class);
+//                            data += "Dish Name: " + dish.getDish_name();
+//                            for (String tag : dish.getTags()) {
+//                                data += "\n-" + tag;
+//                            }
+//                            data += "\n\n";
+//                        }
+//                        Log.d(TAG, data);
+//                        textViewData.setText(data);
+//                    }
+//                });
+//    }
 
 
 }
